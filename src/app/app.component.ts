@@ -4,15 +4,16 @@ import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
 
 import { HomePage } from '../pages/home/home'
-import { GetSideMenuMock } from '../data/datasource/GetSideMenuMock'
+import { GetItemsSideMenuInteractor } from '../domain/GetItemsSideMenuInteractor'
 
 @Component({
   templateUrl: 'app.html',
-  providers: [GetSideMenuMock]
+  providers: [GetItemsSideMenuInteractor]
 })
 export class MyApp {
   rootPage:any = HomePage
-  sideMenuContent:Array<any>
+  interactor:GetItemsSideMenuInteractor
+  public sideMenuContent:Array<any>
 
   @ViewChild('content') content: Nav
 
@@ -20,15 +21,15 @@ export class MyApp {
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
-    service: GetSideMenuMock
+    interactor: GetItemsSideMenuInteractor
   ) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+
       statusBar.styleDefault()
       splashScreen.hide()
 
-      this.sideMenuContent = service.getSideMenu()
+      this.sideMenuContent = interactor.invoke()
+      console.log(this.sideMenuContent)
     });
   }
 }
