@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen'
 
 import { HomePage } from '../pages/home/home'
 import { GetItemsSideMenuInteractor } from '../domain/GetItemsSideMenuInteractor'
+import { SideMenuBo } from '../domain/entities/sideMenuBo'
 
 @Component({
   templateUrl: 'app.html',
@@ -13,7 +14,7 @@ import { GetItemsSideMenuInteractor } from '../domain/GetItemsSideMenuInteractor
 export class MyApp {
   rootPage:any = HomePage
   interactor:GetItemsSideMenuInteractor
-  public sideMenuContent:Array<any>
+  public sideMenuContent:Array<SideMenuBo>
 
   @ViewChild('content') content: Nav
 
