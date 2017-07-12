@@ -1,0 +1,4 @@
+interface SideMenuRepository {
+
+    getSideMenuItems(): string
+}

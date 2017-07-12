@@ -1,17 +1,18 @@
-import { Injector, forwardRef, Injectable, ReflectiveInjector } from '@angular/core'
+import { Injectable } from '@angular/core'
 
-//import { GetSideMenuMock } from '../data/datasource/GetSideMenuMock'
-//import { GetItemsSideMenuInteractorModule } from './getItemsSideMenuInteractor.module'
+import { myContainer } from './repository/inversify.config'
+import { TYPES } from './repository/types'
 import { SideMenuBo } from './entities/sideMenuBo'
+
 
 @Injectable()
 export class GetItemsSideMenuInteractor {
 
-  constructor() {
-
-  }
-
   invoke() {
+
+    var sideMenuRepository = myContainer.get<SideMenuRepository>(TYPES.SideMenuRepository)
+    console.log(sideMenuRepository.getSideMenuItems())
+
     return this.getSideMenuFromInteractor()
   }
 
@@ -39,10 +40,3 @@ class Mapper {
     return result
   }
 }
-
-// var injector = ReflectiveInjector.resolveAndCreate([
-//   GetItemsSideMenuInteractor,
-//   GetSideMenuMock
-// ])
-//
-// var interactor = injector.get(GetItemsSideMenuInteractor)
