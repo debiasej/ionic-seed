@@ -1,4 +1,4 @@
-<ion-menu [content]="content">
+<ion-menu [content]='content'>
     <ion-header>
         <ion-toolbar>
             <ion-title>Ionic Seed</ion-title>
@@ -6,11 +6,11 @@
     </ion-header>
     <ion-content>
         <ion-list>
-            <button ion-item *ngFor={let itemMenu of sideMenuContent }>
-              {{ itemMenu.title }}
+            <button ion-item  *ngFor='let itemMenu of sideMenuContent' >
+              {{ itemMenu.titulo }}
             </button>
         </ion-list>
     </ion-content>
 </ion-menu>
 
-<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+<ion-nav id='nav' #content [root]='rootPage'></ion-nav>
