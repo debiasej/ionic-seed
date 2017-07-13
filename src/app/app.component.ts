@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen'
 
 import { HomePage } from '../pages/home/home'
 import { GetItemsSideMenuInteractor } from '../domain/GetItemsSideMenuInteractor'
-import { SideMenuBo } from '../domain/entities/sideMenuBo'
+import SideMenuBo from '../domain/entities/sideMenuBo'
 
 @Component({
   templateUrl: 'app.html',

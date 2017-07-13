@@ -1,4 +1,8 @@
+import SideMenuBo from '../entities/sideMenuBo'
+
 interface SideMenuRepository {
 
-    getSideMenuItems(): string
+    getSideMenuItems(): Array<SideMenuBo>
 }
+
+export { SideMenuRepository }

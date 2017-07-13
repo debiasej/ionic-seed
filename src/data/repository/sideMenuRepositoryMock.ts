@@ -2,20 +2,17 @@ import { injectable } from 'inversify'
 //import 'reflect-metadata'
 //import { TYPES } from '../../domain/repository/types'
 
-import { SideMenuBo } from '../../domain/entities/sideMenuBo'
+import SideMenuBo from '../../domain/entities/sideMenuBo'
+import { SideMenuRepository } from '../../domain/repository/sideMenuRepository'
 
 @injectable()
 export class SideMenuRepositoryMock implements SideMenuRepository {
-
-    public getSideMenuItems() {
-        return 'side menu items!'
-    }
 
     public getSideMenuItems2() {
         return 'side menu items!'
     }
 
-    public getSideMenuItems3(): Array<SideMenuBo> {
+    public getSideMenuItems(): Array<SideMenuBo> {
 
       var items : Array<SideMenuBo> = new Array()
       var item : SideMenuBo = new SideMenuBo()
