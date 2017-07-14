@@ -1,20 +1,21 @@
-import { Mapper } from '../../mapper'
+import SideMenuDto from '../../dto/sideMenuDto'
 
-export class GetSideMenuMock {
-  mapper: Mapper
+class GetSideMenuMock {
 
-  constructor() {
-    this.mapper = new Mapper()
-  }
+  getSideMenuItemsFromMock() : Array<SideMenuDto> {
 
-  getSideMenu() {
-    var arr = [{
-      titulo: "Portada",
-      destino: "PortadaPage",
-      tipo: "layoutDetail",
-      tabBar: { visible: true, orden: 0 },
-      sideBar: { visible: true, orden: 0 }
-    }]
-    return this.mapper.sideMenuDtotoSideMenuBo(arr)
+    var sideMenuItemsDto: Array<SideMenuDto> = new Array<SideMenuDto>()
+    var sideMenuItemDto: SideMenuDto = new SideMenuDto()
+
+    sideMenuItemDto['titulo'] = 'Portada'
+    sideMenuItemDto['destino'] = 'PortadaPage'
+    sideMenuItemDto['tipo'] = 'layoutDetail'
+    sideMenuItemDto['tabBar'] = { visible: true, orden: 0 }
+    sideMenuItemDto['sideBar'] =  { visible: true, orden: 0 }
+    sideMenuItemsDto.push(sideMenuItemDto)
+
+    return sideMenuItemsDto
   }
 }
+
+export default GetSideMenuMock

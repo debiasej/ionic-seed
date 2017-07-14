@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
 
 import { HomePage } from '../pages/home/home'
-import { GetItemsSideMenuInteractor } from '../domain/GetItemsSideMenuInteractor'
+import { GetItemsSideMenuInteractor } from '../domain/getItemsSideMenuInteractor'
 import SideMenuBo from '../domain/entities/sideMenuBo'
 
 @Component({
@@ -30,7 +30,6 @@ export class MyApp {
       splashScreen.hide()
 
       this.sideMenuContent = interactor.invoke()
-      console.log(this.sideMenuContent)
     });
   }
 }

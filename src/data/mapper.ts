@@ -1,6 +1,6 @@
 import SideMenuBo from '../domain/entities/sideMenuBo'
 
-export class Mapper {
+class Mapper {
 
   sideMenuDtotoSideMenuBo (dto: Array<any>) : Array<SideMenuBo> {
     var result : Array<SideMenuBo> = new Array<SideMenuBo>()
@@ -9,10 +9,12 @@ export class Mapper {
         var sideMenuBo : SideMenuBo  = new SideMenuBo()
         sideMenuBo.title = element["titulo"]
         sideMenuBo.nextPage = element["destino"]
-        sideMenuBo.pageType = element["tipo"] 
-        result.push(sideMenuBo)  
+        sideMenuBo.pageType = element["tipo"]
+        result.push(sideMenuBo)
     }
 
     return result
   }
 }
+
+export default Mapper
