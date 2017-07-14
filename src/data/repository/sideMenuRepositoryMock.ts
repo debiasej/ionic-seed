@@ -4,6 +4,7 @@ import { injectable } from 'inversify'
 
 import SideMenuBo from '../../domain/entities/sideMenuBo'
 import { SideMenuRepository } from '../../domain/repository/sideMenuRepository'
+import { GetSideMenuMock } from './datasource/GetSideMenuMock'
 
 @injectable()
 export class SideMenuRepositoryMock implements SideMenuRepository {
@@ -13,10 +14,9 @@ export class SideMenuRepositoryMock implements SideMenuRepository {
     }
 
     public getSideMenuItems(): Array<SideMenuBo> {
-
-      var items : Array<SideMenuBo> = new Array()
-      var item : SideMenuBo = new SideMenuBo()
-      items.push(item)
+      var service = new GetSideMenuMock()
+      
+      var items : Array<SideMenuBo> = service.getSideMenu()
 
       return items
     }
