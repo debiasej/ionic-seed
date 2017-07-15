@@ -1,9 +1,11 @@
 import { Container } from 'inversify'
 import { TYPES } from './types'
-import { SideMenuRepositoryMock } from '../../data/repository/sideMenuRepositoryMock'
+import { SideMenuRepositoryMock } from '../../data/repository/sideMenu/sideMenuRepositoryMock'
+import { SideMenuRepositoryImpl } from '../../data/repository/sideMenu/sideMenuRepositoryImpl'
 import { SideMenuRepository } from './sideMenuRepository'
 
-var myContainer = new Container()
-myContainer.bind<SideMenuRepository>(TYPES.SideMenuRepository).to(SideMenuRepositoryMock)
+var inversifyContainer = new Container()
+//inversifyContainer.bind<SideMenuRepository>(TYPES.SideMenuRepository).to(SideMenuRepositoryMock)
+inversifyContainer.bind<SideMenuRepository>(TYPES.SideMenuRepository).to(SideMenuRepositoryImpl)
 
-export { myContainer }
+export { inversifyContainer }

@@ -1,8 +1,8 @@
-import SideMenuDto from '../../dto/sideMenuDto'
+import SideMenuDto from '../../../dto/sideMenuDto'
 
-class GetSideMenuMock {
+class SideMenuDataStoreRest {
 
-  getSideMenuItemsFromMock() : Array<SideMenuDto> {
+  getSideMenuItemsFromLocalMock() : Array<SideMenuDto> {
 
     var sideMenuItemsDto: Array<SideMenuDto> = new Array<SideMenuDto>()
     var sideMenuItemDto: SideMenuDto = new SideMenuDto()
@@ -18,4 +18,4 @@ class GetSideMenuMock {
   }
 }
 
-export default GetSideMenuMock
+export default SideMenuDataStoreRest

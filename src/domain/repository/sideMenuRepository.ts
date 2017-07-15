@@ -2,7 +2,7 @@ import SideMenuBo from '../entities/sideMenuBo'
 
 interface SideMenuRepository {
 
-    getSideMenuItemsBo(): Array<SideMenuBo>
+    getSideMenuItems(): Array<SideMenuBo>
 }
 
 export { SideMenuRepository }

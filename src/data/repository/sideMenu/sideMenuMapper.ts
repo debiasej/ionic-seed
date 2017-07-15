@@ -1,6 +1,6 @@
-import SideMenuBo from '../domain/entities/sideMenuBo'
+import SideMenuBo from '../../../domain/entities/sideMenuBo'
 
-class Mapper {
+class SideMenuMapper {
 
   sideMenuDtotoSideMenuBo (dto: Array<any>) : Array<SideMenuBo> {
     var result : Array<SideMenuBo> = new Array<SideMenuBo>()
@@ -17,4 +17,4 @@ class Mapper {
   }
 }
 
-export default Mapper
+export default SideMenuMapper
