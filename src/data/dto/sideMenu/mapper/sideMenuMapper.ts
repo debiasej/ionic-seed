@@ -1,8 +1,9 @@
-import SideMenuBo from '../../../domain/entities/sideMenuBo'
+import SideMenuDto from '../SideMenuDto'
+import SideMenuBo from '../../../../domain/entities/sideMenuBo'
 
 class SideMenuMapper {
 
-  sideMenuDtotoSideMenuBo (dto: Array<any>) : Array<SideMenuBo> {
+  sideMenuDtotoSideMenuBo (dto: Array<SideMenuDto>) : Array<SideMenuBo> {
     var result : Array<SideMenuBo> = new Array<SideMenuBo>()
 
     for (let element of dto) {
