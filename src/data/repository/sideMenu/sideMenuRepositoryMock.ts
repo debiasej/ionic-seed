@@ -1,27 +1,23 @@
 import { injectable } from 'inversify'
-//import 'reflect-metadata'
-//import { TYPES } from '../../domain/repository/types'
 
 import SideMenuBo from '../../../domain/entities/sideMenuBo'
-import SideMenuDto from '../../dto/sideMenuDto'
-import Mapper from './sideMenuMapper'
 import { SideMenuRepository } from '../../../domain/repository/sideMenuRepository'
-import LocalMock from './datasource/sideMenuDataStoreLocalMock'
+import { SideMenuDatasource } from './datasource/sideMenuDatasource'
+import SideMenuDatasourceFactory from './datasource/sideMenuDatasourceFactory'
 
 @injectable()
 export class SideMenuRepositoryMock implements SideMenuRepository {
 
-    mapper: Mapper
+    sideMenuDatasourceFactory: SideMenuDatasourceFactory
 
     constructor() {
-      this.mapper = new Mapper()
+      this.sideMenuDatasourceFactory = new SideMenuDatasourceFactory()
     }
 
     public getSideMenuItems(): Array<SideMenuBo> {
 
-      var service = new LocalMock()
-      var itemsDto: Array<SideMenuDto> = service.getSideMenuItemsFromLocalMock()
-      var itemsBo:  Array<SideMenuBo> = this.mapper.sideMenuDtotoSideMenuBo(itemsDto)
+      var sideMenuDatasource : SideMenuDatasource = this.sideMenuDatasourceFactory.createLocalMock()
+      var itemsBo: Array<SideMenuBo> = sideMenuDatasource.getSideMenuItems()
 
       return itemsBo
     }

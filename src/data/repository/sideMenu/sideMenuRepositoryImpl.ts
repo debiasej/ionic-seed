@@ -3,25 +3,21 @@ import { injectable } from 'inversify'
 //import { TYPES } from '../../domain/repository/types'
 
 import SideMenuBo from '../../../domain/entities/sideMenuBo'
-import SideMenuDto from '../../dto/sideMenuDto'
-import Mapper from './sideMenuMapper'
 import { SideMenuRepository } from '../../../domain/repository/sideMenuRepository'
-import SideMenuDataStoreLocalMock from './datasource/sideMenuDataStoreLocalMock'
+import SideMenuDatasourceRest from './datasource/sideMenuDatasourceRest'
 
 @injectable()
 export class SideMenuRepositoryImpl implements SideMenuRepository {
 
-    mapper: Mapper
+    sideMenuDatasourceRest : SideMenuDatasourceRest
 
     constructor() {
-      this.mapper = new Mapper()
+        this.sideMenuDatasourceRest = new SideMenuDatasourceRest()
     }
 
     public getSideMenuItems(): Array<SideMenuBo> {
 
-      var service = new SideMenuDataStoreLocalMock()
-      var itemsDto: Array<SideMenuDto> = service.getSideMenuItemsFromLocalMock()
-      var itemsBo:  Array<SideMenuBo> = this.mapper.sideMenuDtotoSideMenuBo(itemsDto)
+      var itemsBo: Array<SideMenuBo> = this.sideMenuDatasourceRest.getSideMenuItems()
 
       return itemsBo
     }
