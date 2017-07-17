@@ -14,10 +14,10 @@ export class SideMenuRepositoryMock implements SideMenuRepository {
       this.sideMenuDatasourceFactory = new SideMenuDatasourceFactory()
     }
 
-    public getSideMenuItems(): Array<SideMenuBo> {
+    public getSideMenuItems(): Promise<Array<SideMenuBo>> {
 
       var sideMenuDatasource : SideMenuDatasource = this.sideMenuDatasourceFactory.createLocalMock()
-      var itemsBo: Array<SideMenuBo> = sideMenuDatasource.getSideMenuItems()
+      var itemsBo: Promise<Array<SideMenuBo>> = sideMenuDatasource.getSideMenuItems()
 
       return itemsBo
     }

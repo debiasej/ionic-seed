@@ -15,9 +15,9 @@ export class SideMenuRepositoryImpl implements SideMenuRepository {
         this.sideMenuDatasourceRest = new SideMenuDatasourceRest()
     }
 
-    public getSideMenuItems(): Array<SideMenuBo> {
+    public getSideMenuItems(): Promise<Array<SideMenuBo>> {
 
-      var itemsBo: Array<SideMenuBo> = this.sideMenuDatasourceRest.getSideMenuItems()
+      var itemsBo: Promise<Array<SideMenuBo>> = this.sideMenuDatasourceRest.getSideMenuItems()
 
       return itemsBo
     }

@@ -14,7 +14,7 @@ class SideMenuDatasourceLocalMock implements SideMenuDatasource {
     this.mapper = new Mapper()
   }
 
-  getSideMenuItems() : Array<SideMenuBo> {
+  async getSideMenuItems() : Promise<Array<SideMenuBo>> {
 
     var itemsDto: Array<SideMenuDto> = new Array<SideMenuDto>()
     var dto: SideMenuDto = new SideMenuDto()
@@ -27,6 +27,7 @@ class SideMenuDatasourceLocalMock implements SideMenuDatasource {
     itemsDto.push(dto)
 
     var itemsBo:  Array<SideMenuBo> = this.mapToBo(itemsDto)
+    itemsBo = await this.delay(5000, itemsBo)
 
     return itemsBo
   }
@@ -34,6 +35,15 @@ class SideMenuDatasourceLocalMock implements SideMenuDatasource {
   private mapToBo(itemsDto: Array<SideMenuDto>) : Array<SideMenuBo> {
     return this.mapper.sideMenuDtotoSideMenuBo(itemsDto)
   }
+
+  private delay(milliseconds: number, items: Array<SideMenuBo>): Promise<Array<SideMenuBo>> {
+    return new Promise<Array<SideMenuBo>>(resolve => {
+        setTimeout(() => {
+            resolve(items)
+        }, milliseconds)
+    })
+  }
+
 }
 
 export default SideMenuDatasourceLocalMock

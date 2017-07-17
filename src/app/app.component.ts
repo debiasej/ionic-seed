@@ -28,7 +28,7 @@ export class MyApp {
       statusBar.styleDefault()
       splashScreen.hide()
 
-      this.sideMenuContent = interactor.invoke()
+      interactor.invoke().then( sideMenuItems => this.sideMenuContent = sideMenuItems)
     });
   }
 }
